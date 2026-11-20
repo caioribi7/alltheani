@@ -1,8 +1,18 @@
+<div align="center">
+
 # alltheani
 
 **all the animations** — encontra todos os pontos de transição de um projeto Next.js e deixa tudo suave, a partir de um painel no terminal.
 
+[![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-3B5BFD)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/caioribi7/alltheani?color=3DDC97)](https://github.com/caioribi7/alltheani/releases/latest)
+[![CI](https://github.com/caioribi7/alltheani/actions/workflows/ci.yml/badge.svg)](https://github.com/caioribi7/alltheani/actions/workflows/ci.yml)
+
+<img src="docs/imagens/02-suavizar-tudo.webp" alt="Painel do alltheani com as 11 categorias de transição e o preset recomendado de cada uma" width="900">
+
 [Português](#português) · [English](#english)
+
+</div>
 
 ---
 
@@ -35,6 +45,10 @@ alltheani
 ```
 
 O painel lista cada ponto de transição com `arquivo:linha` e o estado atual: **sem transição**, **instantâneo**, **animado** (já tinha) ou **alltheani ✓**.
+
+| 1. Ele acha tudo | 2. Você revisa o diff antes de escrever |
+|---|---|
+| <img src="docs/imagens/01-painel.webp" alt="Painel recém-aberto: 16 pontos encontrados, 15 sem transição"> | <img src="docs/imagens/03-previa-diff.webp" alt="Prévia do diff: imports e classes ata-* que serão acrescentados"> |
 
 | Tecla | O que faz |
 |---|---|

@@ -444,7 +444,7 @@ fn draw(f: &mut Frame, app: &mut App) {
         return;
     }
 
-    let [left, right] = Layout::horizontal([Constraint::Length(44), Constraint::Min(30)]).areas(body);
+    let [left, right] = Layout::horizontal([Constraint::Length(48), Constraint::Min(30)]).areas(body);
 
     let cat_items: Vec<ListItem> = app
         .cats
