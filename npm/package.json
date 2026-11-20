@@ -1,0 +1,12 @@
+{
+  "name": "alltheani",
+  "version": "0.1.0",
+  "description": "Finds every transition point in a Next.js project and smooths them from a terminal panel.",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/caioribi7/alltheani.git" },
+  "homepage": "https://github.com/caioribi7/alltheani#readme",
+  "keywords": ["nextjs", "animation", "transitions", "view-transitions", "codemod", "tui"],
+  "bin": { "alltheani": "bin/alltheani.js" },
+  "files": ["bin/alltheani.js", "README.md"],
+  "engines": { "node": ">=18" }
+}

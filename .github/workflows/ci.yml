@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo test
+
+  fixture-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: cargo build --release
+      - name: Instalar o app de exemplo
+        working-directory: fixtures/next-app
+        run: npm install --no-audit --no-fund
+      - name: Build antes
+        working-directory: fixtures/next-app
+        run: npm run build
+      - name: Suavizar tudo
+        run: ./target/release/alltheani apply fixtures/next-app --all --yes
+      - name: Build depois
+        working-directory: fixtures/next-app
+        run: npm run build
+      - name: Idempotente
+        run: ./target/release/alltheani apply fixtures/next-app --all --yes | grep "Nada a mudar"
